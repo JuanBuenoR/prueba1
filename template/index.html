@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambi Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">Bambi Task</div>
+    <div class="container">
+        <div class="task-module">
+            <h2>Gestión de Tareas</h2>
+            <div class="guide">
+                Debes escribir o grabar un audio con las siguientes características: 
+                #tarea seguido del contenido de la tarea, 
+                #cliente seguido del nombre del cliente, 
+                #recordatorio seguido de la fecha y hora del mismo.
+                Ej: #tarea realizar imagen de pelé, 
+                #cliente carlos sanchez, 
+                #recordatorio lunes 7 de octubre 10 am
+            </div>
+            <form id="task-form">
+                <label for="task">Texto de la tarea:</label><br>
+                <textarea id="task" name="task" rows="4" cols="50"></textarea><br><br>
+                <button type="button" onclick="startRecording()">Grabar Audio</button><br><br>
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+        <div class="report-module">
+            <h2>Reportes y Estadísticas</h2>
+            <table id="taskTable">
+                <thead>
+                    <tr>
+                        <th>#Tarea</th>
+                        <th>#Cliente</th>
+                        <th>#Recordatorio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregan las tareas -->
+                </tbody>
+            </table>
+            <button onclick="printPDF()">Imprimir en PDF</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
